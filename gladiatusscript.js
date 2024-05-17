@@ -81,20 +81,20 @@ function useFood() {
 (function() {
     'use strict';
 
-    // Add CSS
+    // Add Global CSS
 
-    function addCustomCSS() {
-        const globalCSS = GM_getResourceText("customCSS_global");
+    function addGlobalCSS() {
+        const globalCSS = GM_getResourceText("gladiatusscripttt.css");
         GM_addStyle(globalCSS);
     };
     
-    addCustomCSS();
+    addGlobalCSS();
 
     /*****************
     *     Global     *
     *****************/  
 
-    const assetsUrl = 'https://raw.githubusercontent.com/ebodziony/gladiatus-script/master/assets';
+    const assetsUrl = 'https://raw.githubusercontent.com/radeithbot/gladiatus-script/master/assets';
 
     let autoGoActive = sessionStorage.getItem('autoGoActive') === "true" ? true : false;
 
@@ -105,6 +105,7 @@ function useFood() {
         hp: Number($("#header_values_hp_percent").first().html().replace(/[^0-9]/gi, '')),
         gold: Number($("#sstat_gold_val").first().html().replace(/\./g, '')),
     };
+})();
 
     /*****************
     *     Config     *
@@ -676,7 +677,7 @@ function useFood() {
     // Auto GO button
 
     var autoGoButton = document.createElement("button");
-    autoGoButton.setAttribute("id", "autoGoButton")
+    autoGoButton.setAttribute("id", "autoGoButton") 
     autoGoButton.className = 'menuitem';
 
     if (autoGoActive == false){
@@ -694,7 +695,7 @@ function useFood() {
     var settingsButton = document.createElement("button");
     settingsButton.className = 'menuitem';
     settingsButton.innerHTML = `<img src="${assetsUrl}/cog.svg" title="Ustawienia" height="20" width="20" style="filter: invert(83%) sepia(52%) saturate(503%) hue-rotate(85deg) brightness(103%) contrast(101%); z-index: 999;">`;
-    settingsButton.setAttribute("style", "display: flex; justify-content: center; align-items: center; height: 27px; width: 27px; cursor: pointer; border: none; color: #5dce5d; padding: 0; background-image: url('https://i.imgur.com/jf7BXTX.png')" );
+    settingsButton.setAttribute("style", "display: flex; justify-content: center; align-items: center; height: 27px; width:27px; cursor: pointer; border: none; color: #5dce5d; padding: 0; background-image: url('https://i.imgur.com/jf7BXTX.png')" );
     settingsButton.addEventListener ("click", openSettings);
     document.getElementById("mainmenu").insertBefore(settingsButton, document.getElementById("mainmenu").children[1]);
 
@@ -1022,7 +1023,7 @@ setInterval(manageAllianceMarket, 600000); // İttifak marketi kontrolü her 10 
         * Go Circus Provinciarum *
         *************************/
 
-        else if (doCircus === true && document.getElementById("cooldown_bar_fill_ct").classList.contains("cooldown_bar_fill_ready") === true) {
+         if (doCircus === true && document.getElementById("cooldown_bar_fill_ct").classList.contains("cooldown_bar_fill_ready") === true) {
             function goCircus() {
                 const inArenaPage = document.getElementsByTagName("body")[0].id === "arenaPage";
 
@@ -1279,4 +1280,3 @@ setInterval(manageAllianceMarket, 600000); // İttifak marketi kontrolü her 10 
         window.onload = autoGo();
     };
 
-})();
