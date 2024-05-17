@@ -184,7 +184,7 @@
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
-// @resource     customCSS_global  https://yourserver.com/path/to/global.css
+// @resource     customCSS_global  https://raw.githubusercontent.com/radeith/radeithbot/6cefc219d0dc8290520d755cf123e0e4822b7350/gladiatusscripttt.css
 // ==/UserScript==
 
 (function() {
